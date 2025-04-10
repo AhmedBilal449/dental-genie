@@ -29,7 +29,7 @@ class DentalInference:
         return tuple(random.randint(0, 255) for _ in range(3))
 
     def predict(self, image_np):
-        detections = []
+        detection_data = []
         img = image_np.copy()
         h, w = img.shape[:2]
 
@@ -67,19 +67,25 @@ class DentalInference:
                     max_iou_enumeration = iou
                     best_enumeration_label = e_label
 
-            # Clean label format
             quadrant_clean = best_quadrant_label.replace("Quadrant_", "")
             tooth_clean = best_enumeration_label.replace("Tooth_", "")
             label = f"Quadrant {quadrant_clean} | Tooth {tooth_clean} | {disease_label}"
+            
+            detection_data.append({
+                "quadrant": quadrant_clean,
+                "tooth": tooth_clean,
+                "disease": disease_label,
+                "bbox": (x1, y1, x2, y2)
+            })
 
-            detections.append((x1, y1, x2, y2, label))
-
-        box_colors = [self.get_random_color() for _ in detections]
-        result_labels = []
-
-        for (x1, y1, x2, y2, label), color in zip(detections, box_colors):
-            result_labels.append(label)
+            # Visualization
+            color = self.get_random_color()
             cv2.rectangle(img, (x1, y1), (x2, y2), color, 2)
-            cv2.putText(img, label, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
+            cv2.putText(img, label, (x1, y1 - 10), 
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
 
-        return img, "\n".join(result_labels)
+        # Clean up temporary file
+        if os.path.exists(temp_path):
+            os.remove(temp_path)
+
+        return img, detection_data
