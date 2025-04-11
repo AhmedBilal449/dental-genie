@@ -9,7 +9,7 @@ def get_llm_response(detections, patient_name="", comments="", chat_history=None
     if not detections and not chat_history:
         return "No dental issues detected! Keep up with regular checkups!", []
     
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    model = genai.GenerativeModel('gemini-2.0-flash')
     
     base_prompt = f"""Act as a dental expert assistant. Current patient: {patient_name or 'unnamed patient'}
 Initial findings: {[d['disease'] for d in detections] if detections else 'No issues found'}

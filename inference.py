@@ -1,4 +1,3 @@
-# inference.py
 import torch
 import os
 from pathlib import Path
