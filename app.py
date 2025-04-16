@@ -1,11 +1,27 @@
 import gradio as gr
 import numpy as np
+import os
+from datetime import datetime
 from inference import DentalInference
 from llm_integration import get_llm_response
 
 inference_model = DentalInference()
 
+# Create uploads directory if not exists
+os.makedirs("uploads", exist_ok=True)
+
+def save_uploaded_image(xray_image):
+    """Save uploaded image to uploads folder with timestamp"""
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
+    filename = os.path.join("uploads", f"xray_{timestamp}.png")
+    xray_image.save(filename)
+    return xray_image
+
 def process_xray(patient_name, xray_image, comments):
+    # Save uploaded image
+    xray_image = save_uploaded_image(xray_image)
+    
+    # Existing processing logic
     image_np = np.array(xray_image)
     labeled_image, detection_data = inference_model.predict(image_np)
     
@@ -52,6 +68,14 @@ with gr.Blocks() as interface:
 
     detection_data = gr.State()
     
+    # Save image both on upload and submit
+    xray_image.upload(
+        fn=save_uploaded_image,
+        inputs=xray_image,
+        outputs=None,
+        preprocess=False
+    )
+    
     submit_btn.click(
         fn=process_xray,
         inputs=[patient_name, xray_image, comments],
@@ -64,4 +88,4 @@ with gr.Blocks() as interface:
         outputs=[msg, chatbot]
     )
 
-interface.launch()
+interface.launch(server_name="0.0.0.0")

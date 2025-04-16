@@ -8,9 +8,9 @@ import random
 class DentalInference:
     def __init__(self):
         self.models = {
-            "disease": "runs/detect/quadrant_enumeration_disease_train/weights/best.pt",
-            "enumeration": "runs/detect/quadrant_enumeration_train/weights/best.pt",
-            "quadrant": "runs/detect/quadrant_train/weights/best.pt",
+            "disease": "runs/detect/quadrant_enumeration_disease_train_m/weights/best.pt",
+            "enumeration": "runs/detect/quadrant_enumeration_train_m/weights/best.pt",
+            "quadrant": "runs/detect/quadrant_train_m/weights/best.pt",
         }
         self.yolo_models = {name: YOLO(path) for name, path in self.models.items()}
 
