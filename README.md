@@ -84,7 +84,7 @@ The project is structured as follows:
     |
     +---runs
     |
-    +---detect
+
     Directory and File Descriptions
 
     .gitignore: Contains the list of files and directories to be ignored by Git.
@@ -97,7 +97,7 @@ The project is structured as follows:
 
     cocotoyoloconvertor.py: Converts YOLO annotations to a specific format.
 
-    heirconversion.py: Handles conversion between image formats or model inputs.
+    heirconversion.py: Handles conversion between image formats or model inputs. Not needed but good to have
 
     inference.py: Contains the inference logic for running the YOLOv8 model.
 
@@ -105,10 +105,8 @@ The project is structured as follows:
 
     train.sh: Script for training the YOLOv8 model.
 
-    yolov8n.pt: Trained YOLOv8 model file.
+    yolov8n.pt: Base model used for transfer learning
 
     project: Contains sample validation images (val_0.png, etc.).
 
-    runs: Contains output and logs from model runs.
-
-    detect: Holds detection-related files or models.
+    runs: Contains the models needed
