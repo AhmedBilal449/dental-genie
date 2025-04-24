@@ -27,10 +27,10 @@ cd dental-genie
 
 Create a virtual environment and activate it:
 
-    For Linux/Mac:
+For Linux/Mac:
 
-python -m venv venv
-source venv/bin/activate
+    python -m venv venv
+    source venv/bin/activate
 
 For Windows:
 
