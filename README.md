@@ -58,34 +58,34 @@ Run the Project
 File Structure
 
 The project is structured as follows:
-
-| .gitignore
-| README.md
-| requirements.txt
-| app.py
-| cocotoyoloconvertor.py
-| heirconversion.py
-| inference.py
-| llm_integration.py
-| train.sh
-| yolov8n.pt
-|
-+---project
-| | val_0.png
-| | val_1.png
-| | val_2.png
-| | val_3.png
-| | val_4.png
-| | val_5.png
-| | val_6.png
-| | val_7.png
-| | val_8.png
-| | val_9.png
-|
-+---runs
-|
-+---detect
-Directory and File Descriptions
+    
+    | .gitignore
+    | README.md
+    | requirements.txt
+    | app.py
+    | cocotoyoloconvertor.py
+    | heirconversion.py
+    | inference.py
+    | llm_integration.py
+    | train.sh
+    | yolov8n.pt
+    |
+    +---project
+    | | val_0.png
+    | | val_1.png
+    | | val_2.png
+    | | val_3.png
+    | | val_4.png
+    | | val_5.png
+    | | val_6.png
+    | | val_7.png
+    | | val_8.png
+    | | val_9.png
+    |
+    +---runs
+    |
+    +---detect
+    Directory and File Descriptions
 
     .gitignore: Contains the list of files and directories to be ignored by Git.
 
