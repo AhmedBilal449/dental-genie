@@ -60,8 +60,9 @@ File Structure
 |   |   val_7.png
 |   |   val_8.png
 |   |   val_9.png
-|   |
-|   +---runs
-|   +---detect
+|
++---runs
+|
++---detect
 
 
