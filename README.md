@@ -1,4 +1,4 @@
-DentalGenie
+**DentalGenie**
 
 A web application that uses a custom built Yolov8 machine learning model to detect diseases in dental x-rays. Provides the user with AI assistance as well using Gemini Flash-2.0. Allows detection of impacted teeth, caries, deep caries and pericapal lesions
 
