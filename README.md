@@ -19,11 +19,11 @@ To install the project, follow these steps:
 
     Clone the repository to your local machine:
 
-git clone https://github.com/AhmedBilal449/dental-genie
+    git clone https://github.com/AhmedBilal449/dental-genie
 
-Navigate to the project directory:
+    Navigate to the project directory:
 
-cd dental-genie
+    cd dental-genie
 
 Create a virtual environment and activate it:
 
