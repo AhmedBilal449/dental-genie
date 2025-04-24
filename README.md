@@ -39,10 +39,17 @@ Run the project
 File Structure
 
 The project is structured as follows:
-
-+---runs/detect    
-|   +---
-|           
+|   .gitignore
+|   README.md
+|   requirements.txt
+|   app.py
+|   cocotoyoloconvertor.py
+|   heirconversion.py
+|   inference.py
+|   llm_integration.py
+|   train.sh
+|   yolov8n.pt
+|   
 +---project
 |   |   val_0.png
 |   |   val_1.png
@@ -54,15 +61,7 @@ The project is structured as follows:
 |   |   val_7.png
 |   |   val_8.png
 |   |   val_9.png
-|   .gitignore
-|   README.md
-|   requirements.txt
-|   app.py
-|   cocotoyoloconvertor.py
-|   heirconversion.py
-|   inference.py
-|   llm_integration.py
-|   train.sh
-|   yolov8n.pt
-|
+|   
++---runs
+    +---detect
 
