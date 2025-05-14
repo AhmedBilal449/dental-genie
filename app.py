@@ -7,7 +7,7 @@ from llm_integration import get_llm_response
 
 inference_model = DentalInference()
 
-# Create uploads directory if not exists
+
 os.makedirs("uploads", exist_ok=True)
 
 def save_uploaded_image(xray_image):
@@ -18,14 +18,14 @@ def save_uploaded_image(xray_image):
     return xray_image
 
 def process_xray(patient_name, xray_image, comments):
-    # Save uploaded image
+    
     xray_image = save_uploaded_image(xray_image)
     
-    # Existing processing logic
+    
     image_np = np.array(xray_image)
     labeled_image, detection_data = inference_model.predict(image_np)
     
-    # Format detection results
+    
     result_text = "\n".join([
         f"Quadrant {d['quadrant']}, Tooth {d['tooth']}: {d['disease']}"
         for d in detection_data
@@ -68,7 +68,7 @@ with gr.Blocks() as interface:
 
     detection_data = gr.State()
     
-    # Save image both on upload and submit
+    
     xray_image.upload(
         fn=save_uploaded_image,
         inputs=xray_image,
